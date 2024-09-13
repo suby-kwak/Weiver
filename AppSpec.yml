@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+
+files:
+  - source:  /
+    destination: /home/suby/weiver
+    overwrite: yes
+permissions:
+  - object: /
+    pattern: "**"
+    owner: suby
+    group: suby
