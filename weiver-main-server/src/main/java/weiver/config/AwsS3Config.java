@@ -15,10 +15,10 @@ public class AwsS3Config {
     @Value("${cloud.aws.region.static}")
     private String awsRegion;
 
-    @Value("${AWS_ACCESS_KEY}")
+    @Value("${{secrets.AWS_ACCESS_KEY}}")
     private String awsAccessKey;
 
-    @Value("${AWS_ACCESS_SECRET_KEY}")
+    @Value("${{secrets.AWS_ACCESS_SECRET_KEY}}")
     private String awsSecretKey;
 
     @Bean
