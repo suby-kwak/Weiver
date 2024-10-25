@@ -34,11 +34,8 @@ jobs:
       # properties 파일 수정
       - name: Generate Envirinment Variables File for Production
         run: |
-          echo "cloud.aws.credentials.accessKey=$ACCESS_KEY">> ./weiver-main-server/src/main/resources/application.properties
-          echo "cloud.aws.credentials.secretKey=$SECRET_KEY">> ./weiver-main-server/src/main/resources/application.properties
-        env:
-          ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          echo "cloud.aws.credentials.accessKey=${{ secrets.AWS_ACCESS_KEY_ID }}">> ./weiver-main-server/src/main/resources/application_aws.properties
+          echo "cloud.aws.credentials.secretKey=${{ secrets.AWS_SECRET_ACCESS_KEY }}">> ./weiver-main-server/src/main/resources/application_aws.properties
 
       - name: Build with Maven
         run: mvn -B package --file weiver-main-server/pom.xml
