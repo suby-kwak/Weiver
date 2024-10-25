@@ -32,7 +32,7 @@ jobs:
           cache: maven
 
       # properties 파일 수정
-      - name: Generate Envirinment Variables File for Production
+      - name: Generate Environment Variables File for Production
         run: |
           echo "cloud.aws.credentials.accessKey=${{ secrets.AWS_ACCESS_KEY_ID }}">> ./weiver-main-server/src/main/resources/application_aws.properties
           echo "cloud.aws.credentials.secretKey=${{ secrets.AWS_SECRET_ACCESS_KEY }}">> ./weiver-main-server/src/main/resources/application_aws.properties
@@ -68,4 +68,4 @@ jobs:
 
       ### codeDeploy
       - name: Code Deploy
-        run: aws deploy create-deployment --application-name Weiver-Backend-codedeploy --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name Weiver-Backend-codedeploy-group --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip
+        run: aws deploy create-deployment --application-name Weiver-Backend-codedeploy --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name Weiver-Backend-codedeploy-group --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
