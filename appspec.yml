@@ -8,5 +8,5 @@ files:
 permissions:
   - object: /
     pattern: "**"
-    owner: suby
-    group: suby
+    owner: ubuntu
+    group: ubuntu
