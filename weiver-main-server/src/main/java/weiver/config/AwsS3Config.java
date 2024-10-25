@@ -20,7 +20,7 @@ public class AwsS3Config {
     @Value("${cloud.aws.credentials.accessKey}")
     private String awsAccessKey;
 
-    @Value("${{cloud.aws.credentials.secretKey}}")
+    @Value("${cloud.aws.credentials.secretKey}")
     private String awsSecretKey;
 
     @Bean
