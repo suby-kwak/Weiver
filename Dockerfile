@@ -9,4 +9,4 @@ ARG WAR_FILE=weiver-main-server/target/weiver-0.0.1-SNAPSHOT.war
 COPY ${WAR_FILE} app.war
 
 # 시스템 진입점 정의
-ENTRYPOINT ["java","-war","/app.war"]
+ENTRYPOINT ["java","-jar","/app.war"]
