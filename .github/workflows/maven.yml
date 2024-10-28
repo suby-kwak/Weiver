@@ -37,6 +37,14 @@ jobs:
           echo "cloud.aws.credentials.accessKey=${{ secrets.AWS_ACCESS_KEY_ID }}">> ./weiver-main-server/src/main/resources/application_aws.properties
           echo "cloud.aws.credentials.secretKey=${{ secrets.AWS_SECRET_ACCESS_KEY }}">> ./weiver-main-server/src/main/resources/application_aws.properties
 
+      # Caching dependencies (디펜던시를 캐싱하여 반복적인 빌드 작업의 시간을 단축할 수 있다.)
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
       - name: Build with Maven
         run: mvn -B package --file weiver-main-server/pom.xml
 
