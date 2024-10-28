@@ -173,3 +173,9 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,windows,macos,eclipse,visualstudiocode
 back-end/Servers/.project
+
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+dist
