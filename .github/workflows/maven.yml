@@ -16,7 +16,7 @@ on:
 
 env:
   S3_BUCKET_NAME: "weiver-actions-s3-bucket"
-  PROJECT_NAME: "weiver-webservice"
+  PROJECT_NAME: "Weiver-EC2"
 
 jobs:
   build:
